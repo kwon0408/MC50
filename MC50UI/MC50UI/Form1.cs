@@ -12,15 +12,22 @@ namespace MC50UI
 {
     public partial class Form1 : Form
     {
+        private Printer printer;
+        private string bottomMsg;
+
         public Form1()
         {
             InitializeComponent();
+            printer = Printer.Instance();
+            bottomMsg = "준비";
         }
 
         private void PreviewButton_Click(object sender, EventArgs e)
         {
             string s = RTBMainText.Rtf;
+            StatusLabel.Text = "메시지 창 띄워짐";
             MessageBox.Show(s);
+            StatusLabel.Text = bottomMsg;
         }
 
         private void BtnBold_Click(object sender, EventArgs e)
@@ -50,6 +57,24 @@ Then she grew {\charscalex75 smaller} {\charscalex50 and smaller} {\charscalex25
 }";*/
 
 
+        }
+
+        private void BtnConnect_Click(object sender, EventArgs e)
+        {
+            if (printer.IsConnected)
+            {
+                printer.Disconnect();
+                BtnConnect.Text = "연결";
+                bottomMsg = "준비";
+                StatusLabel.Text = bottomMsg;
+            }
+            else
+            {
+                printer.Connect((int)NUDPortNum.Value);
+                BtnConnect.Text = "연결 끊기";
+                bottomMsg = "연결됨";
+                StatusLabel.Text = bottomMsg; 
+            }
         }
     }
 }

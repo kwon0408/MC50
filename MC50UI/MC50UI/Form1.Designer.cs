@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.RTBMainText = new System.Windows.Forms.RichTextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -36,21 +35,19 @@
             this.도움말HToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.정보AToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.NUDPortNum = new System.Windows.Forms.NumericUpDown();
             this.PreviewButton = new System.Windows.Forms.Button();
             this.BtnBold = new System.Windows.Forms.Button();
             this.BtnSetContent = new System.Windows.Forms.Button();
+            this.btnItalic = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.StatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.RTBMainText = new MC50UI.NewRichBox();
+            this.BtnConnect = new System.Windows.Forms.Button();
+            this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDPortNum)).BeginInit();
             this.SuspendLayout();
-            // 
-            // RTBMainText
-            // 
-            this.RTBMainText.Location = new System.Drawing.Point(12, 55);
-            this.RTBMainText.Name = "RTBMainText";
-            this.RTBMainText.Size = new System.Drawing.Size(333, 311);
-            this.RTBMainText.TabIndex = 0;
-            this.RTBMainText.Text = "";
             // 
             // textBox1
             // 
@@ -61,6 +58,8 @@
             // 
             // statusStrip1
             // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.StatusLabel});
             this.statusStrip1.Location = new System.Drawing.Point(0, 451);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(591, 22);
@@ -101,24 +100,24 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(441, 24);
+            this.label1.Location = new System.Drawing.Point(457, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(66, 12);
             this.label1.TabIndex = 4;
             this.label1.Text = "포트: COM";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // numericUpDown1
+            // NUDPortNum
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(513, 22);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.NUDPortNum.Location = new System.Drawing.Point(529, 26);
+            this.NUDPortNum.Maximum = new decimal(new int[] {
             255,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(50, 21);
-            this.numericUpDown1.TabIndex = 5;
+            this.NUDPortNum.Name = "NUDPortNum";
+            this.NUDPortNum.Size = new System.Drawing.Size(50, 21);
+            this.NUDPortNum.TabIndex = 5;
             // 
             // PreviewButton
             // 
@@ -135,9 +134,9 @@
             this.BtnBold.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.BtnBold.Location = new System.Drawing.Point(13, 26);
             this.BtnBold.Name = "BtnBold";
-            this.BtnBold.Size = new System.Drawing.Size(75, 23);
+            this.BtnBold.Size = new System.Drawing.Size(23, 23);
             this.BtnBold.TabIndex = 7;
-            this.BtnBold.Text = "Bold";
+            this.BtnBold.Text = "가";
             this.BtnBold.UseVisualStyleBackColor = true;
             this.BtnBold.Click += new System.EventHandler(this.BtnBold_Click);
             // 
@@ -151,15 +150,64 @@
             this.BtnSetContent.UseVisualStyleBackColor = true;
             this.BtnSetContent.Click += new System.EventHandler(this.BtnSetContent_Click);
             // 
+            // btnItalic
+            // 
+            this.btnItalic.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnItalic.Location = new System.Drawing.Point(42, 26);
+            this.btnItalic.Name = "btnItalic";
+            this.btnItalic.Size = new System.Drawing.Size(23, 23);
+            this.btnItalic.TabIndex = 7;
+            this.btnItalic.Text = "가";
+            this.btnItalic.UseVisualStyleBackColor = true;
+            this.btnItalic.Click += new System.EventHandler(this.BtnBold_Click);
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button2.Location = new System.Drawing.Point(71, 26);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(23, 23);
+            this.button2.TabIndex = 7;
+            this.button2.Text = "가";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.BtnBold_Click);
+            // 
+            // StatusLabel
+            // 
+            this.StatusLabel.Name = "StatusLabel";
+            this.StatusLabel.Size = new System.Drawing.Size(31, 17);
+            this.StatusLabel.Text = "준비";
+            // 
+            // RTBMainText
+            // 
+            this.RTBMainText.Location = new System.Drawing.Point(12, 55);
+            this.RTBMainText.Name = "RTBMainText";
+            this.RTBMainText.Size = new System.Drawing.Size(333, 311);
+            this.RTBMainText.TabIndex = 0;
+            this.RTBMainText.Text = "";
+            // 
+            // BtnConnect
+            // 
+            this.BtnConnect.Location = new System.Drawing.Point(503, 54);
+            this.BtnConnect.Name = "BtnConnect";
+            this.BtnConnect.Size = new System.Drawing.Size(75, 23);
+            this.BtnConnect.TabIndex = 9;
+            this.BtnConnect.Text = "연결";
+            this.BtnConnect.UseVisualStyleBackColor = true;
+            this.BtnConnect.Click += new System.EventHandler(this.BtnConnect_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(591, 473);
+            this.Controls.Add(this.BtnConnect);
             this.Controls.Add(this.BtnSetContent);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnItalic);
             this.Controls.Add(this.BtnBold);
             this.Controls.Add(this.PreviewButton);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.NUDPortNum);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
@@ -168,9 +216,11 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDPortNum)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,7 +228,7 @@
 
         #endregion
 
-        private System.Windows.Forms.RichTextBox RTBMainText;
+        private NewRichBox RTBMainText;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.MenuStrip menuStrip1;
@@ -186,10 +236,14 @@
         private System.Windows.Forms.ToolStripMenuItem 도움말HToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 정보AToolStripMenuItem;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown NUDPortNum;
         private System.Windows.Forms.Button PreviewButton;
         private System.Windows.Forms.Button BtnBold;
         private System.Windows.Forms.Button BtnSetContent;
+        private System.Windows.Forms.ToolStripStatusLabel StatusLabel;
+        private System.Windows.Forms.Button btnItalic;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button BtnConnect;
     }
 }
 
