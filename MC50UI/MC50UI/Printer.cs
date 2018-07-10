@@ -10,8 +10,6 @@ namespace MC50UI
     class Printer
     {
         private static Printer printer;
-
-        private bool connected;
         private SerialPort serialPort;
 
         private const byte CMD_PRINT_STRING = 0x40;
@@ -19,7 +17,7 @@ namespace MC50UI
 
         protected Printer()
         {
-            connected = false;
+            IsConnected = false;
         }
 
         public static Printer Instance()
@@ -30,14 +28,14 @@ namespace MC50UI
             return printer;
         }
 
-        public bool IsConnected => connected;
+        public bool IsConnected { get; private set; }
 
         public int Connect(int port)
         {
-            if (connected)
+            if (IsConnected)
                 return -1;
 
-            connected = true;
+            IsConnected = true;
 
             try
             {
@@ -56,10 +54,10 @@ namespace MC50UI
 
         public int Disconnect()
         {
-            if (!connected)
+            if (!IsConnected)
                 return -1;
 
-            connected = false;
+            IsConnected = false;
 
             try
             {           
